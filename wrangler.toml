@@ -1,0 +1,19 @@
+name = "paystub-generator"
+main = "src/index.js"
+compatibility_date = "2024-01-15"
+
+# Container configuration
+[[containers]]
+name = "paystub-app"
+class_name = "PaystubApp"
+image = "./Dockerfile"
+port = 3000
+
+# Durable Object configuration (required for containers)
+[[durable_objects.bindings]]
+name = "PAYSTUB_APP"
+class_name = "PaystubApp"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PaystubApp"] 

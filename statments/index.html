@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HSBC Premier Statements - March to May 2025</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+        /* Light theme */
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-tertiary: #f1f5f9;
+        --bg-accent: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border-light: #e2e8f0;
+        --border-medium: #cbd5e1;
+        --shadow: rgba(0, 0, 0, 0.1);
+        --shadow-lg: rgba(0, 0, 0, 0.15);
+        --accent-blue: #3b82f6;
+        --accent-blue-hover: #2563eb;
+        --accent-green: #10b981;
+        --accent-green-hover: #059669;
+        --accent-red: #ef4444;
+        --accent-red-hover: #dc2626;
+        --accent-purple: #8b5cf6;
+        --accent-purple-hover: #7c3aed;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --bg-accent: #475569;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-light: #334155;
+        --border-medium: #475569;
+        --shadow: rgba(0, 0, 0, 0.3);
+        --shadow-lg: rgba(0, 0, 0, 0.4);
+        --accent-blue: #60a5fa;
+        --accent-blue-hover: #3b82f6;
+        --accent-green: #34d399;
+        --accent-green-hover: #10b981;
+        --accent-red: #f87171;
+        --accent-red-hover: #ef4444;
+        --accent-purple: #a78bfa;
+        --accent-purple-hover: #8b5cf6;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        font-size: 10px; 
+        color: var(--text-primary); 
+        margin: 0; 
+        padding: 0; 
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        min-height: 100vh;
+        transition: all 0.3s ease;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--bg-primary);
+        border: 2px solid var(--border-light);
+        border-radius: 50px;
+        padding: 8px 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 12px var(--shadow);
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px var(--shadow-lg);
+    }
+
+    .theme-icon {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Main Controls Container */
+    .controls-container {
+        margin: 80px 20px 40px;
+        background: var(--bg-primary);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
+        border: 1px solid var(--border-light);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+    .controls-header {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .controls-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 8px 0;
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .controls-subtitle {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .control-section {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid var(--border-light);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .control-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
+        border-radius: 16px 16px 0 0;
+    }
+
+         .control-section:hover {
+         transform: translateY(-4px);
+         box-shadow: 0 16px 32px var(--shadow-lg);
+     }
+
+     /* Collapsible section styles */
+     .collapsible-header {
+         cursor: pointer;
+         user-select: none;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         transition: all 0.3s ease;
+     }
+
+     .collapsible-header:hover {
+         color: var(--accent-blue);
+     }
+
+     .collapse-arrow {
+         font-size: 14px;
+         transition: transform 0.3s ease;
+         margin-left: auto;
+     }
+
+     .collapse-arrow.expanded {
+         transform: rotate(180deg);
+     }
+
+     .collapsible-content {
+         overflow: hidden;
+         transition: all 0.3s ease;
+     }
+
+     .collapsible-content.expanded {
+         display: block !important;
+         animation: slideDown 0.3s ease;
+     }
+
+     .collapsible-content.collapsed {
+         animation: slideUp 0.3s ease;
+     }
+
+     @keyframes slideDown {
+         from {
+             max-height: 0;
+             opacity: 0;
+         }
+         to {
+             max-height: 1000px;
+             opacity: 1;
+         }
+     }
+
+     @keyframes slideUp {
+         from {
+             max-height: 1000px;
+             opacity: 1;
+         }
+         to {
+             max-height: 0;
+             opacity: 0;
+         }
+     }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 0 16px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section-icon {
+        width: 20px;
+        height: 20px;
+        opacity: 0.8;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid var(--border-light);
+        border-radius: 12px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: 14px;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    .form-input:focus {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        transform: translateY(-1px);
+    }
+
+    .form-input:hover {
+        border-color: var(--border-medium);
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .radio-option:hover {
+        color: var(--text-primary);
+    }
+
+    .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent-blue);
+    }
+
+    .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .slider {
+        flex: 1;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--border-light);
+        outline: none;
+        appearance: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-blue);
+        cursor: pointer;
+        border: 3px solid var(--bg-primary);
+        box-shadow: 0 2px 8px var(--shadow);
+        transition: all 0.3s ease;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px var(--shadow-lg);
+    }
+
+    .slider-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        min-width: 40px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px var(--shadow-lg);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        color: white;
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, var(--accent-green), #22c55e);
+        color: white;
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, var(--accent-red), #f97316);
+        color: white;
+    }
+
+    .btn-secondary {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        border: 2px solid var(--border-medium);
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 24px;
+    }
+
+    /* Transaction Controls */
+    .transaction-controls {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid var(--border-light);
+        margin-top: 24px;
+        display: none;
+        transition: all 0.3s ease;
+    }
+
+    .transaction-controls.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Statement Pages */
+    .statements-container {
+        margin: 40px 20px;
+    }
+
+    .statement-page {
+        width: 816px;
+        min-height: 1056px;
+        margin: 30px auto;
+        padding: 30px;
+        border: 1px solid var(--border-light);
+        background: var(--bg-primary);
+        box-shadow: 0 10px 40px var(--shadow);
+        border-radius: 8px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        page-break-after: always;
+        page-break-inside: avoid;
+        transition: all 0.3s ease;
+    }
+
+    .statement-page:hover {
+        box-shadow: 0 20px 60px var(--shadow-lg);
+    }
+
+    .statement-page:last-child {
+        page-break-after: auto;
+    }
+
+    .page-content {
+        flex-grow: 1;
+    }
+
+    .header-table { 
+        width: 100%; 
+        border-collapse: collapse; 
+        margin-bottom: 15px; 
+    }
+
+    .header-table td { 
+        vertical-align: top; 
+        padding: 0; 
+    }
+
+    .hsbc-logo { 
+        margin-bottom: 5px; 
+    }
+
+    .address-block { 
+        line-height: 1.4; 
+    }
+
+    .right-align { 
+        text-align: right; 
+    }
+
+    .premier-text { 
+        font-size: 14px; 
+        font-weight: bold; 
+        margin-bottom: 2px; 
+        color: var(--accent-blue);
+    }
+
+    .account-bar { 
+        background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-accent));
+        padding: 12px; 
+        margin-bottom: 15px; 
+        font-weight: bold; 
+        display: flex; 
+        justify-content: space-between;
+        border-radius: 8px;
+        border: 1px solid var(--border-light);
+    }
+
+    .summary-table { 
+        width: 100%; 
+        margin-bottom: 15px; 
+        border-collapse: collapse; 
+    }
+
+    .summary-table td { 
+        padding: 6px 0; 
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .summary-label { 
+        font-weight: normal; 
+        color: var(--text-secondary);
+    }
+
+    .summary-value { 
+        text-align: right; 
+        font-weight: bold; 
+        color: var(--text-primary);
+    }
+
+    .transactions-table { 
+        width: 100%; 
+        border-collapse: collapse; 
+        font-size: 11px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+    }
+
+    .transactions-table th, .transactions-table td { 
+        border-bottom: 1px solid var(--border-light); 
+        padding: 8px; 
+        text-align: left; 
+        vertical-align: top; 
+        line-height: 1.25;
+    }
+
+    .transactions-table th { 
+        background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-accent));
+        font-weight: bold; 
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--border-medium);
+    }
+
+    .transactions-table td.amount { 
+        text-align: right; 
+    }
+
+    .transactions-table td.balance { 
+        text-align: right; 
+        font-weight: bold; 
+        color: var(--accent-green);
+    }
+
+         .transactions-table tr:hover {
+         background: var(--bg-secondary);
+     }
+
+     /* Manual Editing Styles */
+     .editable-field {
+         background: transparent;
+         border: none;
+         outline: none;
+         font-family: inherit;
+         font-size: inherit;
+         color: inherit;
+         width: 100%;
+         padding: 2px;
+         border-radius: 3px;
+         transition: all 0.2s ease;
+     }
+
+     .editable-field:hover {
+         background: var(--bg-secondary);
+     }
+
+     .editable-field:focus {
+         background: var(--bg-primary);
+         border: 1px solid var(--accent-blue);
+         box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+     }
+
+     .editable-amount {
+         text-align: right;
+     }
+
+     .editing-mode .transactions-table tr:hover {
+         background: var(--bg-tertiary);
+     }
+
+     .editing-indicator {
+         position: fixed;
+         top: 70px;
+         right: 20px;
+         background: linear-gradient(135deg, var(--accent-green), #22c55e);
+         color: white;
+         padding: 8px 16px;
+         border-radius: 20px;
+         font-size: 12px;
+         font-weight: 600;
+         z-index: 999;
+         display: none;
+         animation: slideIn 0.3s ease;
+     }
+
+     @keyframes slideIn {
+         from {
+             opacity: 0;
+             transform: translateX(20px);
+         }
+         to {
+             opacity: 1;
+             transform: translateX(0);
+         }
+     }
+
+     @keyframes slideOut {
+         from {
+             opacity: 1;
+             transform: translateX(0);
+         }
+         to {
+             opacity: 0;
+             transform: translateX(20px);
+         }
+     }
+
+    .page-footer { 
+        flex-shrink: 0;
+        width: 100%; 
+        padding-top: 15px; 
+        border-top: 1px solid var(--border-light); 
+        display: flex; 
+        justify-content: space-between; 
+        font-size: 9px; 
+        color: var(--text-muted);
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .caps { 
+        text-transform: uppercase; 
+    }
+
+    .section-title { 
+        font-weight: bold; 
+        margin-bottom: 3px; 
+    }
+
+    .continued-text { 
+        text-align: right; 
+        font-style: italic; 
+        font-size: 9px; 
+        margin-top: 10px; 
+        margin-bottom: 5px;
+        color: var(--text-muted);
+    }
+
+    .page-header-condensed { 
+        padding: 10px 0; 
+        font-size: 9.5px; 
+        display: flex; 
+        justify-content: space-between; 
+        border-bottom: 1px solid var(--border-light); 
+        margin-bottom: 10px;
+    }
+
+    .page-header-condensed .left { 
+        text-align: left; 
+    }
+
+    .page-header-condensed .right { 
+        text-align: right; 
+    }
+
+    .small-print { 
+        font-size: 9px; 
+        margin-top: 15px;
+        color: var(--text-muted);
+    }
+
+    /* File upload styling */
+    .file-input-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .file-input {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+         .file-input-label {
+         display: block;
+         padding: 12px 16px;
+         border: 2px dashed var(--border-medium);
+         border-radius: 12px;
+         background: var(--bg-primary);
+         color: var(--text-secondary);
+         font-size: 14px;
+         text-align: center;
+         cursor: pointer;
+         transition: all 0.3s ease;
+         position: relative;
+         overflow: hidden;
+     }
+
+     .file-input-label:hover {
+         border-color: var(--accent-blue);
+         color: var(--accent-blue);
+         background: var(--bg-secondary);
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px var(--shadow);
+     }
+
+     .file-input-label:active {
+         transform: translateY(0);
+     }
+
+     /* Enhanced drag and drop styling */
+     .file-input-label.dragover {
+         border-color: var(--accent-green);
+         color: var(--accent-green);
+         background: var(--bg-tertiary);
+         transform: scale(1.02);
+     }
+
+     /* Logo preview styles */
+     .logo-preview {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 16px;
+         background: var(--bg-secondary);
+         border-radius: 12px;
+         border: 1px solid var(--border-light);
+         min-height: 120px;
+     }
+
+     .logo-preview img {
+         max-width: 200px;
+         max-height: 100px;
+         height: auto;
+         border: 1px solid var(--border-light);
+         padding: 8px;
+         border-radius: 8px;
+         background: white;
+         transition: all 0.3s ease;
+         box-shadow: 0 2px 8px var(--shadow);
+     }
+
+     .logo-preview:hover img {
+         transform: scale(1.05);
+         box-shadow: 0 4px 16px var(--shadow-lg);
+     }
+
+     /* Preset logos styles */
+     .preset-logo-header {
+         font-size: 16px;
+         margin: 16px 0 8px 0;
+         color: var(--text-secondary);
+     }
+
+     .preset-logos-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+         gap: 12px;
+         padding: 12px 0;
+     }
+
+     .preset-logo-item {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         padding: 12px;
+         border: 2px solid var(--border-light);
+         border-radius: 12px;
+         background: var(--bg-primary);
+         cursor: pointer;
+         transition: all 0.3s ease;
+         text-align: center;
+     }
+
+     .preset-logo-item:hover {
+         border-color: var(--accent-blue);
+         background: var(--bg-secondary);
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px var(--shadow);
+     }
+
+     .preset-logo-item img {
+         max-width: 80px;
+         max-height: 40px;
+         height: auto;
+         margin-bottom: 8px;
+         border-radius: 4px;
+     }
+
+     .preset-logo-item span {
+         font-size: 12px;
+         color: var(--text-secondary);
+         font-weight: 500;
+     }
+
+     .preset-logo-item:hover span {
+         color: var(--accent-blue);
+     }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .controls-container {
+            margin: 80px 10px 20px;
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .controls-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .control-section {
+            padding: 16px;
+        }
+
+        .btn-group {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .radio-group {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .statement-page {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 0;
+        }
+
+        .statements-container {
+            margin: 20px 0;
+        }
+    }
+
+    @media print {
+        button { 
+            display: none; 
+        }
+        .controls-container,
+        .theme-toggle {
+            display: none;
+        }
+        body {
+            background: white;
+        }
+        .statement-page {
+            box-shadow: none;
+            border: 1px solid #000;
+        }
+    }
+
+    /* Loading animations */
+    .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--border-light);
+        border-radius: 50%;
+        border-top-color: var(--accent-blue);
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Tooltips */
+    .tooltip {
+        position: relative;
+        cursor: help;
+    }
+
+    .tooltip::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-light);
+        box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .tooltip:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(-4px);
+    }
+</style>
+<style id="page-style-tag">
+    /* This tag will be updated by JavaScript to set page dimensions */
+    .statement-page {
+        width: 794px; /* A4 width */
+        min-height: 1123px; /* A4 height */
+    }
+</style>
+<style id="print-style-tag">
+    /* This tag will be updated by JavaScript to set print-specific page size */
+</style>
+<style id="font-style-tag">
+    /* This will be updated for font sizes */
+</style>
+</head>
+<body>
+
+<div class="theme-toggle" onclick="toggleTheme()">
+    <span class="theme-icon" id="theme-icon">🌙</span>
+    <span id="theme-text">Dark Mode</span>
+</div>
+
+<div class="editing-indicator" id="editing-indicator">
+    ✏️ Manual Editing Enabled
+</div>
+
+<div class="controls-container">
+    <div class="controls-header">
+        <h1 class="controls-title">HSBC Statement Generator</h1>
+        <p class="controls-subtitle">Create professional bank statements with ease</p>
+    </div>
+    
+    <div class="controls-grid">
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">🎯</span>
+                Dynamic Generation
+            </h3>
+            <div class="form-group">
+                <label class="form-label">Start Date</label>
+                <input type="month" id="start-date-input" value="2025-02" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Number of Months</label>
+                <input type="number" id="num-months-input" value="3" min="1" max="12" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Starting Balance ($)</label>
+                <input type="number" id="start-balance-input" value="12000" step="100" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Transaction Density</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="density" value="minimal">
+                        Minimal (0-2/day)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="density" value="regular" checked>
+                        Regular (1-3/day)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="density" value="heavy">
+                        Heavy (1-5/day)
+                    </label>
+                </div>
+            </div>
+            <button onclick="generateDynamicStatements()" class="btn btn-primary">
+                ✨ Generate New Statements
+            </button>
+        </div>
+
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">📄</span>
+                Page & PDF Settings
+            </h3>
+            <div class="form-group">
+                <label class="form-label">Paper Size</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="paper-size" value="A4" checked onchange="updatePageStyle()">
+                        A4
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="paper-size" value="Legal" onchange="updatePageStyle()">
+                        Legal
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Font Size</label>
+                <div class="slider-container">
+                    <input type="range" id="font-size-slider" min="9" max="12" value="10" step="0.5" 
+                           oninput="updatePageStyle()" class="slider">
+                    <span id="font-size-value" class="slider-value">10px</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">📊</span>
+                Transaction Data
+            </h3>
+            <div class="form-group">
+                <label class="form-label">Upload transactions.json</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="transactions-file-input" accept=".json" class="file-input">
+                    <label for="transactions-file-input" class="file-input-label">
+                        📁 Choose File or Drop Here
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">👤</span>
+                Account Details
+            </h3>
+                         <div class="form-group">
+                 <label class="form-label">Account Holder Name</label>
+                 <input type="text" id="account-holder-name-input" value="JOHN SMITH" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Address Line 1</label>
+                 <input type="text" id="address-line1-input" value="1234 MAPLE STREET" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Address Line 2</label>
+                 <input type="text" id="address-line2-input" value="ANYTOWN NY 10001" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Account Number</label>
+                 <input type="text" id="account-number-input" value="123-456789" class="form-input">
+             </div>
+        </div>
+
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">🏦</span>
+                Bank Details
+            </h3>
+                         <div class="form-group">
+                 <label class="form-label">Bank Name</label>
+                 <input type="text" id="bank-name-input" value="HSBC DIRECT" class="form-input">
+             </div>
+                         <div class="form-group">
+                 <label class="form-label">Bank Phone</label>
+                 <input type="text" id="bank-phone-input" value="212.221.2221" class="form-input">
+             </div>
+        </div>
+
+        <div class="control-section">
+            <h3 class="section-title">
+                <span class="section-icon">💰</span>
+                Mandatory Deposits
+            </h3>
+            <div id="mandatory-deposits-container" class="form-group">
+                <!-- Mandatory deposit rules will be added here -->
+            </div>
+            <button id="add-deposit-rule-btn" onclick="addMandatoryDepositRule()" class="btn btn-success">
+                ➕ Add Deposit Rule
+            </button>
+        </div>
+
+                 <div class="control-section">
+             <h3 class="section-title">
+                 <span class="section-icon">🖼️</span>
+                 Logo Customization
+             </h3>
+             <div class="form-group">
+                 <label class="form-label">Upload Custom Logo (PNG, SVG, JPG)</label>
+                 <div class="file-input-wrapper">
+                     <input type="file" id="logo-file-input" accept=".png,.svg,.jpg,.jpeg" class="file-input">
+                     <label for="logo-file-input" class="file-input-label">
+                         🖼️ Choose Logo File
+                     </label>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Logo Width (pixels)</label>
+                 <input type="number" id="logo-width-input" value="180" min="50" max="400" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Logo Preview</label>
+                 <div id="logo-preview" class="logo-preview">
+                     <img id="current-logo" src="hsbc-ar21.svg" alt="Current Logo">
+                 </div>
+             </div>
+             
+             <div class="form-group">
+                 <h4 class="collapsible-header preset-logo-header" onclick="togglePresetLogos()">
+                     🏦 Preset Bank Logos
+                     <span class="collapse-arrow" id="preset-logos-arrow">▼</span>
+                 </h4>
+                 <div class="collapsible-content preset-logos-content" id="preset-logos-content" style="display: none;">
+                     <div class="preset-logos-grid">
+                         <div class="preset-logo-item" onclick="selectPresetLogo('hsbc-ar21.svg', 'HSBC')">
+                             <img src="hsbc-ar21.svg" alt="HSBC Logo">
+                             <span>HSBC</span>
+                         </div>
+                         <div class="preset-logo-item" onclick="selectPresetLogo('logos/Fieldpoint.svg', 'Field Point Private')">
+                             <img src="logos/Fieldpoint.svg" alt="Field Point Private Logo">
+                             <span>Field Point Private</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             
+             <button onclick="resetLogo()" class="btn btn-secondary">
+                 🔄 Reset to Default
+             </button>
+         </div>
+
+         <div class="control-section">
+             <h3 class="section-title collapsible-header" onclick="toggleCustomizationSection()">
+                 <span class="section-icon">🎨</span>
+                 Statement Customization
+                 <span class="collapse-arrow" id="customization-arrow">▼</span>
+             </h3>
+             <div class="collapsible-content" id="customization-content" style="display: none;">
+             <div class="form-group">
+                 <label class="form-label">Bank Address (Line 1)</label>
+                 <input type="text" id="bank-address-line1-input" value="P.O. Box 1393" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Bank Address (Line 2)</label>
+                 <input type="text" id="bank-address-line2-input" value="Buffalo, NY 14240-1393" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Service Name</label>
+                 <input type="text" id="service-name-input" value="HSBC PREMIER" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Header Title</label>
+                 <input type="text" id="header-title-input" value="Premier" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Relationship Manager Title</label>
+                 <input type="text" id="relationship-manager-title-input" value="Your Relationship Manager" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Contact Header</label>
+                 <input type="text" id="contact-header-input" value="Questions?" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Primary Phone</label>
+                 <input type="text" id="primary-phone-input" value="212.221.2221" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">TTY Phone</label>
+                 <input type="text" id="tty-phone-input" value="1.800.898.5999" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Website</label>
+                 <input type="text" id="website-input" value="us.hsbc.com" class="form-input">
+             </div>
+             <div class="form-group">
+                 <label class="form-label">Footer Text (Left)</label>
+                 <input type="text" id="footer-text-left-input" value="HSBC Bank USA, N.A. (Rev. 1/2022) yMs" class="form-input">
+             </div>
+             <button onclick="updateAllCustomization()" class="btn btn-success">
+                 💾 Update All Customization
+             </button>
+             <button onclick="resetCustomization()" class="btn btn-secondary">
+                 🔄 Reset to HSBC Defaults
+             </button>
+             </div>
+         </div>
+    </div>
+    
+         <div class="btn-group">
+         <button onclick="generatePDF()" class="btn btn-primary">
+             📄 Generate PDF Statements
+         </button>
+         <button onclick="showTransactionControls()" class="btn btn-secondary">
+             ⚙️ Adjust Transaction Distribution
+         </button>
+         <button onclick="toggleManualEditing()" class="btn btn-secondary" id="manual-edit-btn">
+             ✏️ Enable Manual Editing
+         </button>
+     </div>
+    
+    <div id="transactionControls" class="transaction-controls">
+        <h4 class="section-title">Transactions Per Page (Requires Regeneration)</h4>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
+            Adjust the number of transactions you want on each page. The system will create up to 3 pages per month if needed.
+        </p>
+        <div id="distribution-controls-container" style="display: flex; flex-wrap: wrap; gap: 15px;"></div>
+        <div class="btn-group">
+            <button onclick="generateDynamicStatements()" class="btn btn-primary">
+                🔄 Apply & Regenerate
+            </button>
+            <button onclick="resetToDefault()" class="btn btn-secondary">
+                🔄 Reset All
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="statements-container" class="statements-container">
+    <!-- Statement pages will be dynamically generated here -->
+</div>
+
+<script>
+    // Theme Toggle Functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark Mode';
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light Mode';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Load saved theme
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('theme-icon').textContent = '☀️';
+            document.getElementById('theme-text').textContent = 'Light Mode';
+        }
+    });
+
+    // Enhanced show transaction controls with animation
+    function showTransactionControls() {
+        const controls = document.getElementById('transactionControls');
+        if (controls.style.display === 'none' || !controls.style.display) {
+            controls.classList.add('show');
+            controls.style.display = 'block';
+        } else {
+            controls.classList.remove('show');
+            setTimeout(() => {
+                controls.style.display = 'none';
+            }, 300);
+        }
+    }
+
+    // Toggle customization section
+    function toggleCustomizationSection() {
+        const content = document.getElementById('customization-content');
+        const arrow = document.getElementById('customization-arrow');
+        
+        if (content.style.display === 'none') {
+            // Show the content
+            content.style.display = 'block';
+            content.classList.remove('collapsed');
+            content.classList.add('expanded');
+            arrow.classList.add('expanded');
+        } else {
+            // Hide the content
+            content.classList.remove('expanded');
+            content.classList.add('collapsed');
+            arrow.classList.remove('expanded');
+            
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                content.style.display = 'none';
+                content.classList.remove('collapsed');
+            }, 300);
+        }
+    }
+
+    // Toggle preset logos section
+    function togglePresetLogos() {
+        const content = document.getElementById('preset-logos-content');
+        const arrow = document.getElementById('preset-logos-arrow');
+        
+        if (content.style.display === 'none') {
+            // Show the content
+            content.style.display = 'block';
+            content.classList.remove('collapsed');
+            content.classList.add('expanded');
+            arrow.classList.add('expanded');
+        } else {
+            // Hide the content
+            content.classList.remove('expanded');
+            content.classList.add('collapsed');
+            arrow.classList.remove('expanded');
+            
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                content.style.display = 'none';
+                content.classList.remove('collapsed');
+            }, 300);
+        }
+    }
+
+    // Select preset logo
+    function selectPresetLogo(logoPath, bankName) {
+        customLogoDataUrl = null; // Clear custom upload
+        currentLogoSrc = logoPath;
+        
+        // Update preview
+        const previewImg = document.getElementById('current-logo');
+        previewImg.src = logoPath;
+        
+        // Clear file input
+        document.getElementById('logo-file-input').value = '';
+        
+        // Show success message
+        showSuccessMessage(`${bankName} logo applied successfully!`);
+        
+        // Regenerate statements with new logo
+        const distributionSettings = getCurrentDistributionSettings();
+        renderAllStatementsHTML(distributionSettings);
+    }
+
+    // --- GLOBAL STATE AND CONFIGURATION ---
+    let transactionTemplates = [];
+    let uploadedTransactionTemplates = null; // To store user-uploaded templates
+    let generatedStatements = [];
+    const defaultFooterText = "HSBC Bank USA, N.A. (Rev. 1/2022) yMs";
+    let currentLogoSrc = "hsbc-ar21.svg"; // Default logo
+    let customLogoDataUrl = null; // Store custom logo as data URL
+    
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', async () => {
+        document.getElementById('transactions-file-input').addEventListener('change', handleFileUpload);
+        document.getElementById('logo-file-input').addEventListener('change', handleLogoUpload);
+        document.getElementById('logo-width-input').addEventListener('change', updateLogoWidth);
+        
+        // Add drag and drop functionality for logo upload
+        setupDragAndDrop();
+        
+        await fetchTransactionTemplates();
+        updatePageStyle(); // Set initial page size
+        generateDynamicStatements();
+    });
+
+    async function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) {
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const data = JSON.parse(e.target.result);
+                if (data && Array.isArray(data.templates)) {
+                    uploadedTransactionTemplates = data.templates;
+                    console.log('Successfully loaded and parsed uploaded transactions.json.');
+                    // Regenerate statements immediately after a successful upload
+                    generateDynamicStatements(); 
+                } else {
+                    alert('Invalid JSON format. The file must contain a "templates" array.');
+                    uploadedTransactionTemplates = null; // Clear any previously uploaded data
+                }
+            } catch (error) {
+                console.error('Error parsing uploaded JSON file:', error);
+                alert('Failed to parse the uploaded file. Please ensure it is a valid JSON file.');
+                uploadedTransactionTemplates = null; // Clear any previously uploaded data
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    async function handleLogoUpload(event) {
+        const file = event.target.files[0];
+        if (!file) {
+            return;
+        }
+
+        // Validate file type
+        const validTypes = ['image/png', 'image/svg+xml', 'image/jpeg', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+            alert('Please upload a valid image file (PNG, SVG, JPG, or JPEG).');
+            return;
+        }
+
+        // Validate file size (max 2MB)
+        if (file.size > 2 * 1024 * 1024) {
+            alert('File size must be less than 2MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                customLogoDataUrl = e.target.result;
+                currentLogoSrc = customLogoDataUrl;
+                
+                // Update preview
+                const previewImg = document.getElementById('current-logo');
+                previewImg.src = customLogoDataUrl;
+                
+                // Update file input label to show success
+                const label = document.querySelector('label[for="logo-file-input"]');
+                label.innerHTML = '✅ Logo Uploaded Successfully';
+                label.style.borderColor = 'var(--accent-green)';
+                label.style.color = 'var(--accent-green)';
+                
+                // Reset label after 3 seconds
+                setTimeout(() => {
+                    label.innerHTML = '🖼️ Choose Logo File';
+                    label.style.borderColor = '';
+                    label.style.color = '';
+                }, 3000);
+
+                // Regenerate statements with new logo
+                const distributionSettings = getCurrentDistributionSettings();
+                renderAllStatementsHTML(distributionSettings);
+                
+                console.log('Logo uploaded and applied successfully.');
+            } catch (error) {
+                console.error('Error processing logo file:', error);
+                alert('Failed to process the logo file. Please try again.');
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function updateLogoWidth() {
+        const distributionSettings = getCurrentDistributionSettings();
+        renderAllStatementsHTML(distributionSettings);
+    }
+
+    function resetLogo() {
+        customLogoDataUrl = null;
+        currentLogoSrc = "hsbc-ar21.svg";
+        
+        // Update preview
+        const previewImg = document.getElementById('current-logo');
+        previewImg.src = currentLogoSrc;
+        
+        // Clear file input
+        document.getElementById('logo-file-input').value = '';
+        
+        // Reset width to default
+        document.getElementById('logo-width-input').value = '180';
+        
+        // Regenerate statements
+        const distributionSettings = getCurrentDistributionSettings();
+        renderAllStatementsHTML(distributionSettings);
+        
+        console.log('Logo reset to default.');
+    }
+
+    function setupDragAndDrop() {
+        const logoLabel = document.querySelector('label[for="logo-file-input"]');
+        const logoInput = document.getElementById('logo-file-input');
+
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            logoLabel.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            logoLabel.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            logoLabel.addEventListener(eventName, unhighlight, false);
+        });
+
+        // Handle dropped files
+        logoLabel.addEventListener('drop', handleLogoDrop, false);
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function highlight(e) {
+            logoLabel.classList.add('dragover');
+        }
+
+        function unhighlight(e) {
+            logoLabel.classList.remove('dragover');
+        }
+
+        function handleLogoDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+
+            if (files.length > 0) {
+                logoInput.files = files;
+                handleLogoUpload({ target: { files: files } });
+            }
+        }
+    }
+
+    async function fetchTransactionTemplates() {
+        try {
+            const response = await fetch('transactions.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+            transactionTemplates = data.templates;
+        } catch (error) {
+            console.error('Error fetching transaction templates:', error);
+            alert('Failed to load transaction data. Please check the console.');
+        }
+    }
+
+    // --- CORE STATEMENT GENERATION LOGIC ---
+    function generateDynamicStatements() {
+        // Determine which transaction templates to use
+        const templatesToUse = uploadedTransactionTemplates || transactionTemplates;
+        if (templatesToUse.length === 0) {
+            alert("No transaction templates available. Please load the default or upload a file.");
+            return;
+        }
+
+        // Get current distribution settings BEFORE regenerating the UI
+        const distributionSettings = getCurrentDistributionSettings();
+        const mandatoryDepositRules = getMandatoryDepositRules();
+        const density = document.querySelector('input[name="density"]:checked').value;
+
+        const startDateValue = document.getElementById('start-date-input').value;
+        const startDate = new Date(startDateValue + '-01T12:00:00Z');
+        const numMonths = parseInt(document.getElementById('num-months-input').value);
+        let currentBalance = parseFloat(document.getElementById('start-balance-input').value);
+        
+        let transactionCursor = 0;
+        generatedStatements = []; 
+        // Need a reference date for bi-weekly calculations, let's use the first day of the first month.
+        const biWeeklyRefDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+        
+        for (let i = 0; i < numMonths; i++) {
+            const monthStartDate = new Date(startDate.getFullYear(), startDate.getMonth() + i, 1);
+            const statementPeriodStart = new Date(monthStartDate.getFullYear(), monthStartDate.getMonth(), 6);
+            const statementPeriodEnd = new Date(monthStartDate.getFullYear(), monthStartDate.getMonth() + 1, 5);
+
+            let allMonthTransactions = [];
+
+            // 1. Generate mandatory deposits for the period
+            mandatoryDepositRules.forEach(rule => {
+                const depositDate = new Date(statementPeriodStart);
+                while(depositDate <= statementPeriodEnd) {
+                    let shouldAdd = false;
+                    if (rule.frequency === 'weekly') {
+                        if (depositDate.getDay() === 5) { // It's a Friday
+                            shouldAdd = true;
+                        }
+                    } else if (rule.frequency === 'bi-weekly') {
+                        const daysDiff = Math.floor((depositDate - biWeeklyRefDate) / (1000 * 60 * 60 * 24));
+                        if (depositDate.getDay() === 5 && (Math.floor(daysDiff / 7) % 2 === 0)) { // It's a Friday on an even week from reference
+                           shouldAdd = true;
+                        }
+                    } else if (rule.frequency === 'semi-monthly') {
+                        const lastDayOfMonth = new Date(depositDate.getFullYear(), depositDate.getMonth() + 1, 0).getDate();
+                        if (depositDate.getDate() === 15 || depositDate.getDate() === lastDayOfMonth) {
+                            shouldAdd = true;
+                        }
+                    }
+
+                    if(shouldAdd) {
+                        allMonthTransactions.push({
+                            date: new Date(depositDate), // Store as date object for sorting
+                            description: rule.description.toUpperCase(),
+                            deposit: rule.amount,
+                            withdrawal: 0
+                        });
+                    }
+                    depositDate.setDate(depositDate.getDate() + 1);
+                }
+            });
+
+            // 2. Generate random filler transactions
+            const daysInStatementPeriod = (statementPeriodEnd - statementPeriodStart) / (1000 * 60 * 60 * 24) + 1;
+            for (let day = 0; day < daysInStatementPeriod; day++) {
+                const transactionDate = new Date(statementPeriodStart);
+                transactionDate.setDate(transactionDate.getDate() + day);
+
+                let numTransactionsToday;
+                switch (density) {
+                    case 'minimal':
+                        numTransactionsToday = Math.floor(Math.random() * 3); // 0, 1, or 2
+                        break;
+                    case 'heavy':
+                        numTransactionsToday = Math.floor(Math.random() * 5) + 1; // 1, 2, 3, 4, or 5
+                        break;
+                    case 'regular':
+                    default:
+                        numTransactionsToday = Math.floor(Math.random() * 3) + 1; // 1, 2, or 3
+                        break;
+                }
+                
+                for (let j = 0; j < numTransactionsToday; j++) {
+                    const template = templatesToUse[transactionCursor % templatesToUse.length];
+                    transactionCursor++; 
+                    allMonthTransactions.push({
+                        date: new Date(transactionDate), // Store as date object
+                        description: template.description,
+                        deposit: parseFloat(template.deposit) || 0,
+                        withdrawal: parseFloat(template.withdrawal) || 0
+                    });
+                }
+            }
+            
+            // 3. Sort all transactions by date
+            allMonthTransactions.sort((a, b) => a.date - b.date);
+
+            // 4. Calculate running balances and create final transaction list
+            let runningBalance = currentBalance;
+            let totalDeposits = 0;
+            let totalWithdrawals = 0;
+            const finalTransactions = [{ 
+                date: formatDate(statementPeriodStart), 
+                description: 'OPENING BALANCE', 
+                deposit: '', 
+                withdrawal: '', 
+                balance: runningBalance,
+                originalIndex: 0
+            }];
+
+            allMonthTransactions.forEach((tx, index) => {
+                const deposit = tx.deposit || 0;
+                const withdrawal = tx.withdrawal || 0;
+                runningBalance += deposit - withdrawal;
+                totalDeposits += deposit;
+                totalWithdrawals += withdrawal;
+                finalTransactions.push({
+                    ...tx,
+                    date: formatDate(tx.date),
+                    balance: runningBalance,
+                    originalIndex: index + 1
+                });
+            });
+
+            const monthData = {
+                monthName: monthStartDate.toLocaleString('default', { month: 'long', year: 'numeric' }),
+                statementPeriod: `${formatDate(statementPeriodStart)} TO ${formatDate(statementPeriodEnd)}`,
+                beginningBalance: currentBalance,
+                transactions: finalTransactions,
+                deposits: totalDeposits,
+                withdrawals: totalWithdrawals,
+                endingBalance: runningBalance
+            };
+
+            generatedStatements.push(monthData);
+            currentBalance = runningBalance; // Carry over to next month
+        }
+
+        renderAllStatementsHTML(distributionSettings);
+        updateFooterText();
+    }
+
+    // --- HTML RENDERING ---
+    function renderAllStatementsHTML(distributionSettings) {
+        const container = document.getElementById('statements-container');
+        container.innerHTML = '';
+        const distributionContainer = document.getElementById('distribution-controls-container');
+        distributionContainer.innerHTML = '';
+
+        generatedStatements.forEach((monthData, monthIndex) => {
+            // Use the passed-in settings or a default of one page with 25 transactions.
+            const transactionsPerPageFromControls = (distributionSettings && distributionSettings[monthIndex]) ? distributionSettings[monthIndex] : [25];
+
+            const totalTransactions = monthData.transactions.length;
+            let transactionCursor = 0;
+            let visiblePageNum = 0;
+
+            // Correctly calculate the total number of pages that will actually be rendered for THIS month.
+            let tempTransactionCursor = 0;
+            const totalPagesForMonth = transactionsPerPageFromControls.filter(count => {
+                const willRender = count > 0 && tempTransactionCursor < totalTransactions;
+                if (willRender) {
+                    tempTransactionCursor += count;
+                }
+                return willRender;
+            }).length;
+
+            // Iterate through the user-defined page structure.
+            transactionsPerPageFromControls.forEach(numOnThisPage => {
+                // Only render a page if it's assigned a non-zero number of transactions
+                // and we haven't already rendered all available transactions.
+                if (numOnThisPage <= 0 || transactionCursor >= totalTransactions) {
+                    return; // Skip this page.
+                }
+                
+                visiblePageNum++;
+
+                const pageTransactions = monthData.transactions.slice(transactionCursor, transactionCursor + numOnThisPage);
+                
+                container.appendChild(createStatementPage(monthData, pageTransactions, visiblePageNum, totalPagesForMonth));
+                transactionCursor += pageTransactions.length; // Advance the cursor by the number of transactions actually placed.
+            });
+            
+            distributionContainer.appendChild(createDistributionInputs(monthData.monthName, monthIndex, transactionsPerPageFromControls));
+        });
+    }
+
+    function createStatementPage(monthData, transactions, pageNum, totalPages) {
+        const page = document.createElement('div');
+        page.className = 'statement-page';
+        const isFirstPage = pageNum === 1;
+        
+        // Get customizable values from input fields
+        const accountHolderName = document.getElementById('account-holder-name-input').value.toUpperCase();
+        const addressLine1 = document.getElementById('address-line1-input').value.toUpperCase();
+        const addressLine2 = document.getElementById('address-line2-input').value.toUpperCase();
+        const accountNumber = document.getElementById('account-number-input').value;
+        const bankName = document.getElementById('bank-name-input').value.toUpperCase();
+        const bankPhone = document.getElementById('bank-phone-input').value;
+        
+        // Get statement customization values
+        const bankAddressLine1 = document.getElementById('bank-address-line1-input').value;
+        const bankAddressLine2 = document.getElementById('bank-address-line2-input').value;
+        const serviceName = document.getElementById('service-name-input').value.toUpperCase();
+        const headerTitle = document.getElementById('header-title-input').value;
+        const relationshipManagerTitle = document.getElementById('relationship-manager-title-input').value;
+        const contactHeader = document.getElementById('contact-header-input').value;
+        const primaryPhone = document.getElementById('primary-phone-input').value;
+        const ttyPhone = document.getElementById('tty-phone-input').value;
+        const website = document.getElementById('website-input').value;
+        
+        const logoWidth = document.getElementById('logo-width-input').value;
+        let fullHeaderAndSummary = `
+            <table class="header-table"><tr><td><div class="hsbc-logo"><img src="${currentLogoSrc}" alt="Bank Logo" style="width: ${logoWidth}px; height: auto;"></div><div class="address-block">${bankAddressLine1}<br>${bankAddressLine2}</div></td><td class="right-align address-block"><div class="bold" style="font-size:16px; margin-bottom: 10px;">${headerTitle}</div><div style="font-size: 10px; font-weight: bold; margin-bottom: 3px;">${contactHeader}</div>Call ${primaryPhone}<br>TTY ${ttyPhone}<br>${website}</td></tr></table>
+            <table class="header-table" style="margin-top: 20px;"><tr><td style="width: 50%;" class="address-block">${accountHolderName}<br>${addressLine1}<br>${addressLine2}</td><td style="width: 50%; text-align: right;" class="address-block"><div style="font-size: 10px; font-weight: bold; margin-bottom: 3px; text-transform: uppercase;">${relationshipManagerTitle}</div>${bankName}<br>${bankPhone}</td></tr></table>
+            <div style="margin-top: 15px; margin-bottom: 15px;"><div class="premier-text caps">${serviceName}</div><div class="bold caps">${accountHolderName}</div></div>
+            <div class="account-bar"><div>ACCOUNT NUMBER <span style="font-weight:normal;">${accountNumber}</span></div><div>STATEMENT PERIOD <span style="font-weight:normal;">${monthData.statementPeriod}</span></div></div>
+            <table class="summary-table"><tr><td class="summary-label caps">BEGINNING BALANCE</td><td class="summary-value">${formatCurrency(monthData.beginningBalance)}</td></tr><tr><td class="summary-label caps">DEPOSITS & OTHER ADDITIONS</td><td class="summary-value">${formatCurrency(monthData.deposits)}</td></tr><tr><td class="summary-label caps">WITHDRAWALS & OTHER SUBTRACTIONS</td><td class="summary-value">${formatCurrency(monthData.withdrawals)}</td></tr><tr><td class="summary-label caps bold" style="padding-top: 5px; border-top: 1px solid #000;">ENDING BALANCE</td><td class="summary-value bold" style="padding-top: 5px; border-top: 1px solid #000;">${formatCurrency(monthData.endingBalance)}</td></tr></table>`;
+        let pageHeaderCondensed = `<div class="page-header-condensed"><div class="left">${accountHolderName}<br>ACCOUNT NUMBER ${accountNumber}</div><div class="right">STATEMENT PERIOD ${monthData.statementPeriod}<br><span class="bold caps">CONTINUED FROM PREVIOUS PAGE</span></div></div>`;
+
+        const isEditing = document.body.classList.contains('editing-mode');
+        const transactionsHtml = `<table class="transactions-table"><thead><tr><th class="caps">DATE POSTED</th><th class="caps">DESCRIPTION OF TRANSACTIONS</th><th class="caps amount">DEPOSITS & OTHER ADDITIONS</th><th class="caps amount">WITHDRAWALS & OTHER SUBTRACTIONS</th><th class="caps amount">BALANCE</th></tr></thead><tbody>${transactions.map((tx, index) => createTransactionRow(tx, tx.originalIndex || index, isEditing)).join('')}</tbody></table>`;
+        const footerHtml = `<div class="page-footer"><div class="small-print footer-text-left">${document.getElementById('footer-text-left-input').value}</div><div class="small-print bold">Page ${pageNum} of ${totalPages}</div></div>`;
+
+        page.innerHTML = `<div class="page-content">${isFirstPage ? fullHeaderAndSummary : pageHeaderCondensed}${transactionsHtml}</div>${footerHtml}`;
+        return page;
+    }
+
+    function createTransactionRow(tx, index, isEditing = false) {
+        if (isEditing) {
+            return `<tr data-tx-index="${index}">
+                <td>${tx.date}</td>
+                <td><input type="text" class="editable-field" value="${tx.description}" onchange="updateTransactionDescription(${index}, this.value)"></td>
+                <td class="amount"><input type="number" class="editable-field editable-amount" value="${tx.deposit || ''}" step="0.01" onchange="updateTransactionAmount(${index}, 'deposit', this.value)" placeholder="0.00"></td>
+                <td class="amount"><input type="number" class="editable-field editable-amount" value="${tx.withdrawal || ''}" step="0.01" onchange="updateTransactionAmount(${index}, 'withdrawal', this.value)" placeholder="0.00"></td>
+                <td class="balance" data-balance>${formatCurrency(tx.balance)}</td>
+            </tr>`;
+        } else {
+            return `<tr data-tx-index="${index}"><td>${tx.date}</td><td>${tx.description}</td><td class="amount">${tx.deposit ? formatCurrency(tx.deposit) : ''}</td><td class="amount">${tx.withdrawal ? formatCurrency(tx.withdrawal) : ''}</td><td class="balance">${formatCurrency(tx.balance)}</td></tr>`;
+        }
+    }
+
+    // --- UI CONTROLS AND HELPERS ---
+    function createDistributionInputs(monthName, monthIndex, values) {
+        const container = document.createElement('div');
+        container.className = 'month-distribution-controls';
+        container.style.border = '1px solid var(--border-light)'; 
+        container.style.padding = '16px'; 
+        container.style.borderRadius = '12px';
+        container.style.marginBottom = '16px';
+        container.style.background = 'var(--bg-primary)';
+        container.innerHTML = `<h5 style="margin:0 0 12px 0; color: var(--text-primary); font-size: 16px; font-weight: 600;">${monthName}</h5>`;
+        
+        const inputsContainer = document.createElement('div');
+        inputsContainer.id = `dist-inputs-month-${monthIndex}`;
+        
+        values.forEach((val, i) => {
+            inputsContainer.appendChild(createSinglePageInput(monthIndex, i, val));
+        });
+
+        container.appendChild(inputsContainer);
+
+        const addPageButton = document.createElement('button');
+        addPageButton.textContent = '➕ Add Page';
+        addPageButton.onclick = () => {
+            const newPageIndex = document.querySelectorAll(`.dist-input[data-month="${monthIndex}"]`).length;
+            inputsContainer.appendChild(createSinglePageInput(monthIndex, newPageIndex, 25)); // Default new pages to 25
+        };
+        addPageButton.className = 'btn btn-success';
+        addPageButton.style.marginTop = '12px';
+
+        container.appendChild(addPageButton);
+        return container;
+    }
+
+    function createSinglePageInput(monthIndex, pageIndex, value) {
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.marginBottom = '8px';
+        wrapper.style.gap = '12px';
+
+        const label = document.createElement('label');
+        label.style.display = 'flex';
+        label.style.alignItems = 'center';
+        label.style.gap = '8px';
+        label.style.fontSize = '14px';
+        label.style.color = 'var(--text-secondary)';
+        label.innerHTML = `<span style="min-width: 60px;">Page ${pageIndex + 1}:</span>
+                          <input type="number" class="dist-input form-input" data-month="${monthIndex}" data-page="${pageIndex}" value="${value}" min="0" max="100" style="width: 80px;">`;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = '🗑️';
+        removeButton.title = 'Remove Page';
+        removeButton.onclick = () => {
+            wrapper.remove();
+        };
+        removeButton.className = 'btn btn-danger';
+        removeButton.style.padding = '6px 8px';
+        removeButton.style.fontSize = '12px';
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(removeButton);
+
+        return wrapper;
+    }
+
+    function getCurrentDistributionSettings() {
+        const settings = {};
+        const numMonths = generatedStatements.length || parseInt(document.getElementById('num-months-input').value);
+        let controlsExist = false;
+        for (let i = 0; i < numMonths; i++) {
+            const inputs = document.querySelectorAll(`.dist-input[data-month="${i}"]`);
+            if (inputs.length > 0) {
+                controlsExist = true;
+                settings[i] = Array.from(inputs).map(input => parseInt(input.value) || 0);
+            }
+        }
+        return controlsExist ? settings : null;
+    }
+
+    function updateFooterText() {
+        document.querySelectorAll('.footer-text-left').forEach(el => el.textContent = document.getElementById('footer-text-left-input').value);
+    }
+
+    function updateAllCustomization() {
+        // Re-render statements with updated customization
+        const distributionSettings = getCurrentDistributionSettings();
+        renderAllStatementsHTML(distributionSettings);
+        
+        // Show success message
+        showSuccessMessage('All customization updated successfully!');
+    }
+
+    function resetCustomization() {
+        // Reset all customization fields to HSBC defaults
+        document.getElementById('bank-address-line1-input').value = 'P.O. Box 1393';
+        document.getElementById('bank-address-line2-input').value = 'Buffalo, NY 14240-1393';
+        document.getElementById('service-name-input').value = 'HSBC PREMIER';
+        document.getElementById('header-title-input').value = 'Premier';
+        document.getElementById('relationship-manager-title-input').value = 'Your Relationship Manager';
+        document.getElementById('contact-header-input').value = 'Questions?';
+        document.getElementById('primary-phone-input').value = '212.221.2221';
+        document.getElementById('tty-phone-input').value = '1.800.898.5999';
+        document.getElementById('website-input').value = 'us.hsbc.com';
+        document.getElementById('footer-text-left-input').value = defaultFooterText;
+        
+        // Re-render statements
+        updateAllCustomization();
+        
+        // Show success message
+        showSuccessMessage('Reset to HSBC defaults successfully!');
+    }
+
+    function showSuccessMessage(message) {
+        // Create temporary success message
+        const successDiv = document.createElement('div');
+        successDiv.style.cssText = `
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-green), #22c55e);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px var(--shadow);
+        `;
+        successDiv.textContent = message;
+        document.body.appendChild(successDiv);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            successDiv.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(successDiv);
+            }, 300);
+        }, 3000);
+    }
+
+    function resetToDefault() {
+        document.getElementById('start-date-input').value = '2025-02';
+        document.getElementById('num-months-input').value = '3';
+        document.getElementById('start-balance-input').value = '12000';
+        document.getElementById('distribution-controls-container').innerHTML = '';
+        
+        // Also reset customization to defaults
+        resetCustomization();
+        
+        generateDynamicStatements();
+    }
+
+    // --- UTILITIES ---
+    function formatDate(date) {
+        return new Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).format(date);
+    }
+
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+    }
+
+    // --- MANUAL EDITING FUNCTIONALITY ---
+    let isManualEditingEnabled = false;
+
+    function toggleManualEditing() {
+        const btn = document.getElementById('manual-edit-btn');
+        const indicator = document.getElementById('editing-indicator');
+        const body = document.body;
+        
+        isManualEditingEnabled = !isManualEditingEnabled;
+        
+        if (isManualEditingEnabled) {
+            body.classList.add('editing-mode');
+            btn.innerHTML = '💾 Save & Disable Editing';
+            btn.className = 'btn btn-success';
+            indicator.style.display = 'block';
+        } else {
+            body.classList.remove('editing-mode');
+            btn.innerHTML = '✏️ Enable Manual Editing';
+            btn.className = 'btn btn-secondary';
+            indicator.style.display = 'none';
+        }
+        
+        // Re-render statements with editing mode
+        const distributionSettings = getCurrentDistributionSettings();
+        renderAllStatementsHTML(distributionSettings);
+    }
+
+    function updateTransactionDescription(txIndex, newDescription) {
+        // Find the transaction in generatedStatements and update it
+        generatedStatements.forEach(monthData => {
+            monthData.transactions.forEach((tx, index) => {
+                if (tx.originalIndex === txIndex || index === txIndex) {
+                    tx.description = newDescription.toUpperCase();
+                }
+            });
+        });
+    }
+
+    function updateTransactionAmount(txIndex, type, newValue) {
+        const amount = parseFloat(newValue) || 0;
+        
+        // Find and update the transaction
+        generatedStatements.forEach(monthData => {
+            monthData.transactions.forEach((tx, index) => {
+                if (tx.originalIndex === txIndex || index === txIndex) {
+                    if (type === 'deposit') {
+                        tx.deposit = amount;
+                        tx.withdrawal = 0; // Clear withdrawal if setting deposit
+                    } else {
+                        tx.withdrawal = amount;
+                        tx.deposit = 0; // Clear deposit if setting withdrawal  
+                    }
+                }
+            });
+            
+            // Recalculate balances for this month
+            recalculateMonthBalances(monthData);
+        });
+        
+        // Update the balance display in real-time
+        updateBalanceDisplay();
+    }
+
+    function recalculateMonthBalances(monthData) {
+        let runningBalance = monthData.beginningBalance;
+        let totalDeposits = 0;
+        let totalWithdrawals = 0;
+        
+        monthData.transactions.forEach((tx, index) => {
+            if (index === 0) return; // Skip opening balance row
+            
+            const deposit = tx.deposit || 0;
+            const withdrawal = tx.withdrawal || 0;
+            
+            runningBalance += deposit - withdrawal;
+            totalDeposits += deposit;
+            totalWithdrawals += withdrawal;
+            
+            tx.balance = runningBalance;
+        });
+        
+        monthData.deposits = totalDeposits;
+        monthData.withdrawals = totalWithdrawals;
+        monthData.endingBalance = runningBalance;
+    }
+
+    function updateBalanceDisplay() {
+        // Update all balance cells in the DOM
+        document.querySelectorAll('[data-balance]').forEach((cell, index) => {
+            const txRow = cell.closest('tr');
+            const txIndex = txRow?.getAttribute('data-tx-index');
+            
+            if (txIndex !== null) {
+                // Find the corresponding transaction
+                generatedStatements.forEach(monthData => {
+                    monthData.transactions.forEach(tx => {
+                        if ((tx.originalIndex !== undefined && tx.originalIndex == txIndex) || 
+                            (tx.originalIndex === undefined && monthData.transactions.indexOf(tx) == txIndex)) {
+                            cell.textContent = formatCurrency(tx.balance);
+                        }
+                    });
+                });
+            }
+        });
+        
+        // Update summary tables
+        updateSummaryTables();
+    }
+
+    function updateSummaryTables() {
+        // Update the summary sections of each statement
+        generatedStatements.forEach((monthData, monthIndex) => {
+            const summaryTables = document.querySelectorAll('.summary-table');
+            if (summaryTables[monthIndex]) {
+                const table = summaryTables[monthIndex];
+                const cells = table.querySelectorAll('.summary-value');
+                if (cells.length >= 4) {
+                    cells[0].textContent = formatCurrency(monthData.beginningBalance);
+                    cells[1].textContent = formatCurrency(monthData.deposits);
+                    cells[2].textContent = formatCurrency(monthData.withdrawals);
+                    cells[3].textContent = formatCurrency(monthData.endingBalance);
+                }
+            }
+        });
+    }
+
+    // --- PDF GENERATION ---
+    async function generatePDF() {
+        console.log("Requesting PDF generation...");
+        
+        // Temporarily disable editing mode for clean PDF export
+        const wasEditing = isManualEditingEnabled;
+        if (wasEditing) {
+            document.body.classList.remove('editing-mode');
+            const distributionSettings = getCurrentDistributionSettings();
+            renderAllStatementsHTML(distributionSettings);
+        }
+        
+        try {
+            const allPagesHtml = Array.from(document.querySelectorAll('.statement-page')).map(page => page.outerHTML);
+            const paperSize = document.querySelector('input[name="paper-size"]:checked').value;
+            const fontSize = document.getElementById('font-size-slider').value;
+
+            const response = await fetch('http://localhost:3000/render-pdf', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    pagesHtml: allPagesHtml, 
+                    paperSize: paperSize,
+                    fontSize: fontSize
+                })
+            });
+            const result = await response.json();
+            window.open(`http://localhost:3000/rendered_statements/${result.fileName}`, '_blank');
+        } catch (error) {
+            console.error('Error generating PDF:', error);
+            alert('Error generating PDF. Check console for details.');
+        } finally {
+            // Restore editing mode if it was enabled
+            if (wasEditing) {
+                document.body.classList.add('editing-mode');
+                const distributionSettings = getCurrentDistributionSettings();
+                renderAllStatementsHTML(distributionSettings);
+            }
+        }
+    }
+
+    // --- MANDATORY DEPOSIT ---
+    function addMandatoryDepositRule() {
+        const container = document.getElementById('mandatory-deposits-container');
+        const ruleIndex = container.children.length;
+
+        const ruleDiv = document.createElement('div');
+        ruleDiv.className = 'deposit-rule';
+        ruleDiv.style.display = 'flex';
+        ruleDiv.style.alignItems = 'center';
+        ruleDiv.style.gap = '12px';
+        ruleDiv.style.padding = '16px';
+        ruleDiv.style.border = '1px solid var(--border-light)';
+        ruleDiv.style.borderRadius = '12px';
+        ruleDiv.style.background = 'var(--bg-primary)';
+        ruleDiv.style.marginBottom = '12px';
+        ruleDiv.style.flexWrap = 'wrap';
+
+        ruleDiv.innerHTML = `
+            <input type="text" placeholder="Description (e.g., Payroll)" class="deposit-rule-desc form-input" value="PAYROLL" style="flex: 1; min-width: 160px;">
+            <input type="number" placeholder="Amount" class="deposit-rule-amount form-input" value="2500" style="width: 100px;">
+            <select class="deposit-rule-freq form-input" style="width: 180px;">
+                <option value="bi-weekly">Bi-Weekly</option>
+                <option value="semi-monthly">Semi-Monthly (15th & Last day)</option>
+                <option value="weekly">Weekly (on Fridays)</option>
+            </select>
+            <button onclick="this.parentElement.remove()" class="btn btn-danger" style="padding: 8px 12px;">🗑️</button>
+        `;
+        container.appendChild(ruleDiv);
+    }
+
+    function getMandatoryDepositRules() {
+        const rules = [];
+        document.querySelectorAll('.deposit-rule').forEach(ruleEl => {
+            const description = ruleEl.querySelector('.deposit-rule-desc').value;
+            const amount = parseFloat(ruleEl.querySelector('.deposit-rule-amount').value);
+            const frequency = ruleEl.querySelector('.deposit-rule-freq').value;
+            if (description && amount > 0) {
+                rules.push({ description, amount, frequency });
+            }
+        });
+        return rules;
+    }
+
+    // --- UI AND STYLE MANIPULATION ---
+
+    function updatePageStyle() {
+        // --- Paper Size ---
+        const selectedSize = document.querySelector('input[name="paper-size"]:checked').value;
+        const pageStyleTag = document.getElementById('page-style-tag');
+        const printStyleTag = document.getElementById('print-style-tag');
+        
+        let width, minHeight, pageSizeCss;
+        if (selectedSize === 'Legal') {
+            width = '816px'; // 8.5" * 96 DPI
+            minHeight = '1344px'; // 14" * 96 DPI
+            pageSizeCss = 'legal';
+        } else { // A4 is the default
+            width = '794px'; // 210mm to px at 96 DPI
+            minHeight = '1123px'; // 297mm to px at 96 DPI
+            pageSizeCss = 'A4';
+        }
+
+        pageStyleTag.innerHTML = `
+            .statement-page {
+                width: ${width};
+                min-height: ${minHeight};
+            }
+        `;
+
+        printStyleTag.innerHTML = `
+            @media print {
+                @page {
+                    size: ${pageSizeCss};
+                    margin: 0; /* Use the padding from .statement-page instead of browser margins */
+                }
+                body {
+                   -webkit-print-color-adjust: exact; /* Chrome, Safari, Edge */
+                   print-color-adjust: exact; /* Firefox */
+                }
+            }
+        `;
+
+        // --- Font Size ---
+        const fontSizeSlider = document.getElementById('font-size-slider');
+        const fontSizeValueSpan = document.getElementById('font-size-value');
+        const baseSize = parseFloat(fontSizeSlider.value);
+        fontSizeValueSpan.textContent = `${baseSize}px`;
+
+        const fontStyleTag = document.getElementById('font-style-tag');
+        
+        // Calculate proportional font sizes based on the new base size
+        const premierTextSize = baseSize * 1.4;       // Original: 14px when base is 10
+        const transactionTableSize = baseSize * 1.1;  // Original: 11px when base is 10
+        const footerSize = baseSize * 0.9;            // Original: 9px when base is 10
+        const condensedHeaderSize = baseSize * 0.95;  // Original: 9.5px when base is 10
+
+        fontStyleTag.innerHTML = `
+            body { font-size: ${baseSize}px; }
+            .premier-text { font-size: ${premierTextSize}px; }
+            .transactions-table { font-size: ${transactionTableSize}px; }
+            .transactions-table th, .transactions-table td { padding: ${baseSize * 0.4}px; }
+            .page-footer { font-size: ${footerSize}px; }
+            .continued-text { font-size: ${footerSize}px; }
+            .page-header-condensed { font-size: ${condensedHeaderSize}px; }
+            .small-print { font-size: ${footerSize}px; }
+        `;
+    }
+</script>
+
+</body>
+</html>
