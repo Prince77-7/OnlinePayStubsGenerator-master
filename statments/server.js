@@ -196,7 +196,7 @@ app.post('/render-pdf', async (req, res) => {
         const page = await browser.newPage();
 
         // Navigate to the temporary endpoint serving the HTML
-        		await page.goto('http://localhost:3003/pdf-content', { waitUntil: 'networkidle0' });
+        		await page.goto(`http://localhost:${port}/pdf-content`, { waitUntil: 'networkidle0' });
 
         const pdfFileName = 'hsbc_statements_march_may_2025.pdf';
         const pdfFilePath = path.join(outputDir, pdfFileName);

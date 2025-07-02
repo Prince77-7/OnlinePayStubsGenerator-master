@@ -7,6 +7,13 @@ $(document).ready(function () {
 	// Global variables for pay cycle management
 	let generatedPaystubs = [];
 	let currentCycleData = null;
+	
+	// API Configuration - automatically detects if running locally or hosted
+	const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+		? `http://${window.location.hostname}:3003` 
+		: window.location.origin;
+	
+	console.log('API Base URL:', API_BASE);
 
 	// Initialize date inputs with current date
 	$('#cycle-start-date').val(new Date().toISOString().split('T')[0]);
@@ -572,7 +579,7 @@ $(document).ready(function () {
 		button.prop('disabled', true);
 
 		try {
-			const response = await fetch('http://localhost:3003/render-multiple-pdfs', {
+			const response = await fetch(`${API_BASE}/render-multiple-pdfs`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ paystubs: generatedPaystubs })
@@ -603,7 +610,7 @@ $(document).ready(function () {
 		}
 
 		try {
-			const response = await fetch('http://localhost:3003/render-pdf', {
+			const response = await fetch(`${API_BASE}/render-pdf`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(generatedPaystubs[index])
@@ -730,7 +737,7 @@ $(document).ready(function () {
 			return;
 		}
 
-		fetch('http://localhost:3003/render-pdf', {
+		fetch(`${API_BASE}/render-pdf`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(formData)
