@@ -53,7 +53,7 @@ Once deployed, your app will be available at your Cloudflare URL:
 ## Environment Configuration
 
 The container is configured with:
-- **Port**: 3000 (internal)
+- **Port**: 3003 (internal)
 - **Internet Access**: Disabled for security
 - **Browser**: Chrome with optimized flags for container environment
 - **Graceful Shutdown**: Handles SIGTERM/SIGINT signals properly

@@ -51,7 +51,7 @@ az container create \
   --name paystub-generator \
   --image paystub-generator:latest \
   --dns-name-label paystub-unique \
-  --ports 3000
+  --ports 3003
 ```
 
 ### Option 4: Railway (Developer-Friendly)

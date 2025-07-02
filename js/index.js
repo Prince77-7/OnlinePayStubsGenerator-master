@@ -572,7 +572,7 @@ $(document).ready(function () {
 		button.prop('disabled', true);
 
 		try {
-			const response = await fetch('http://localhost:3000/render-multiple-pdfs', {
+			const response = await fetch('http://localhost:3003/render-multiple-pdfs', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ paystubs: generatedPaystubs })
@@ -603,7 +603,7 @@ $(document).ready(function () {
 		}
 
 		try {
-			const response = await fetch('http://localhost:3000/render-pdf', {
+			const response = await fetch('http://localhost:3003/render-pdf', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(generatedPaystubs[index])
@@ -730,7 +730,7 @@ $(document).ready(function () {
 			return;
 		}
 
-		fetch('http://localhost:2323/render-pdf', {
+		fetch('http://localhost:3003/render-pdf', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(formData)

@@ -7,7 +7,7 @@ compatibility_date = "2024-01-15"
 name = "paystub-app"
 class_name = "PaystubApp"
 image = "./Dockerfile"
-port = 3000
+port = 3003
 
 # Durable Object configuration (required for containers)
 [[durable_objects.bindings]]

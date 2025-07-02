@@ -33,7 +33,7 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
 USER pptruser
 
 # Expose the port
-EXPOSE 3000
+EXPOSE 3003
 
 # Start the application
 CMD ["npm", "start"] 

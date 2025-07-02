@@ -2090,7 +2090,7 @@
             const paperSize = document.querySelector('input[name="paper-size"]:checked').value;
             const fontSize = document.getElementById('font-size-slider').value;
 
-            const response = await fetch('http://localhost:3000/render-pdf', {
+            const response = await fetch('http://localhost:3003/render-pdf', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -2100,7 +2100,7 @@
                 })
             });
             const result = await response.json();
-            window.open(`http://localhost:3000/rendered_statements/${result.fileName}`, '_blank');
+                            window.open(`http://localhost:3003/rendered_statements/${result.fileName}`, '_blank');
         } catch (error) {
             console.error('Error generating PDF:', error);
             alert('Error generating PDF. Check console for details.');

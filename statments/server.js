@@ -5,7 +5,7 @@ const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
-const port = 3000; // You can choose any available port
+const port = 3003; // You can choose any available port
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' })); // Increase limit for potentially large HTML content
@@ -196,7 +196,7 @@ app.post('/render-pdf', async (req, res) => {
         const page = await browser.newPage();
 
         // Navigate to the temporary endpoint serving the HTML
-        await page.goto('http://localhost:3000/pdf-content', { waitUntil: 'networkidle0' });
+        		await page.goto('http://localhost:3003/pdf-content', { waitUntil: 'networkidle0' });
 
         const pdfFileName = 'hsbc_statements_march_may_2025.pdf';
         const pdfFilePath = path.join(outputDir, pdfFileName);
